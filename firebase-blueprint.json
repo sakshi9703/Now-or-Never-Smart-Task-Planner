@@ -1,0 +1,6 @@
+{
+  "database": {
+    "indexes": [],
+    "rules": "rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    function isSignedIn() {\n      return request.auth != null;\n    }\n    function isOwner(userId) {\n      return isSignedIn() && request.auth.uid == userId;\n    }\n    match /users/{userId} {\n      allow read, write: if isOwner(userId);\n      match /tasks/{taskId} {\n        allow read, write: if isOwner(userId);\n      }\n    }\n  }\n}"
+  }
+}

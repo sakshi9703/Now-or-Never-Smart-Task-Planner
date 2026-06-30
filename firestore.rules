@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Rules for user profiles
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      // Rules for tasks subcollection
+      match /tasks/{taskId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+  }
+}

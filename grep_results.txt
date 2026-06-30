@@ -1,0 +1,29 @@
+                  className="w-full sm:w-auto px-5 py-3 bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-white rounded-xl text-xs font-bold border border-slate-800 transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-lg"
+              <span className="text-xs bg-surface-secondary text-white/50 font-bold px-2.5 py-0.5 rounded-full border border-border-custom">
+                className="px-3.5 py-2 bg-accent-primary hover:bg-accent-primary/90 text-white text-xs font-bold rounded-xl flex items-center gap-1 shadow-md shadow-accent-primary/10 cursor-pointer transition-all"
+                      ? "bg-accent-primary text-white border-accent-primary"
+              <div className="col-span-full text-center py-16 bg-surface-primary rounded-2xl border border-dashed border-border-custom text-white/30 text-xs">
+                <Compass className="w-10 h-10 mx-auto text-white/10 mb-3 animate-pulse" />
+                  <h2 className="text-base font-black text-white tracking-tight leading-snug">
+                  <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest mt-1 block">
+                      className="px-3 py-1.5 bg-accent-primary hover:bg-accent-primary/90 text-white text-[11px] font-bold rounded-xl flex items-center gap-1 transition-all cursor-pointer shadow-md shadow-accent-primary/15"
+                    className="px-3 py-1.5 bg-surface-secondary text-white hover:text-white rounded-xl border border-border-custom hover:bg-surface-secondary/80 transition-all cursor-pointer text-[11px] font-bold"
+                    className="p-1.5 text-white/40 hover:text-[#EF4444] rounded-xl transition-all cursor-pointer"
+                    className="p-1.5 text-white/40 hover:text-white rounded-xl transition-all cursor-pointer"
+                <p className="text-xs text-white/80 leading-relaxed bg-surface-secondary p-4 rounded-xl border border-border-custom">
+                  <span className="text-[8px] font-black text-white/40 uppercase tracking-wider block">Priority</span>
+                  <span className="text-[8px] font-black text-white/40 uppercase tracking-wider block">Effort</span>
+                  <span className="text-xs font-bold text-white mt-1 block">
+                  <span className="text-[8px] font-black text-white/40 uppercase tracking-wider block">Due Date</span>
+                  <span className="text-xs font-bold text-white mt-1 block">
+                  <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                    <p className="text-xs text-white/60">
+                      className="w-full py-2 bg-accent-primary hover:bg-accent-primary/90 disabled:bg-accent-primary/40 text-white text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center justify-center gap-1"
+                          <Sparkles className="w-4 h-4 text-white/50" />
+                              ? "bg-surface-secondary/50 border-border-custom text-white/30"
+                              : "bg-surface-secondary border-border-custom text-white hover:border-white/10"
+                            <span className={`text-xs font-medium leading-normal ${isSubChecked ? "line-through text-white/40" : "text-white"}`}>
+                          <span className="text-[10px] font-mono font-bold bg-surface-primary px-2 py-0.5 rounded text-white/50">
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 mb-2">
+                  <p className="text-xs text-white/70 leading-relaxed italic">
+                  className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white text-xs font-bold rounded-2xl transition-colors cursor-pointer shadow-md shadow-red-950/10"
