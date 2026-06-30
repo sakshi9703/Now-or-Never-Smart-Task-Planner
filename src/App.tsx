@@ -1970,7 +1970,7 @@ export default function App() {
                 <button
                   disabled={tasks.length === 0}
                   onClick={() => setIsDeleteDropdownOpen(!isDeleteDropdownOpen)}
-                  className={`px-4 py-2 text-xs font-extrabold tracking-wider uppercase rounded-xl flex items-center justify-center gap-1.5 transition-all h-10 shrink-0 border border-transparent select-none ${
+                  className={`ml-auto sm:ml-0 px-4 py-2 text-xs font-extrabold tracking-wider uppercase rounded-xl flex items-center justify-center gap-1.5 transition-all h-10 shrink-0 border border-transparent select-none ${
                     tasks.length === 0
                       ? "bg-text-secondary/5 text-text-secondary/35 cursor-not-allowed opacity-45"
                       : isDeleteDropdownOpen
