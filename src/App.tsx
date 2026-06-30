@@ -1990,7 +1990,7 @@ export default function App() {
                         initial={{ opacity: 0, scale: 0.95, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                        className="absolute right-0 mt-2 w-[285px] bg-bg-surface border border-border-custom rounded-2xl shadow-2xl z-50 p-1.5 overflow-hidden flex flex-col gap-1"
+                        className="absolute right-0 sm:right-0 left-1/2 sm:left-auto -translate-x-1/2 sm:translate-x-0 mt-2 w-[280px] max-w-[calc(100vw-1rem)] bg-bg-surface border border-border-custom rounded-2xl shadow-2xl z-50 p-1.5 overflow-hidden flex flex-col gap-1"
                       >
                         {/* Delete All Option */}
                         <button
@@ -2050,7 +2050,7 @@ export default function App() {
                             </div>
                           </button>
                           {!tasks.some((t) => t.status === "completed") && (
-                            <div className="absolute right-2 bottom-full mb-2 w-max max-w-[240px] bg-bg-surface border border-border-custom px-3 py-1.5 rounded-xl shadow-xl opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 text-center text-[10px] font-bold text-text-primary pointer-events-none">
+                            <div className="absolute right-2 sm:right-0 bottom-full mb-2 w-max max-w-[240px] bg-bg-surface border border-border-custom px-3 py-1.5 rounded-xl shadow-xl opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-200 z-50 text-center text-[10px] font-bold text-text-primary pointer-events-none">
                               There are no completed tasks to delete.
                             </div>
                           )}
