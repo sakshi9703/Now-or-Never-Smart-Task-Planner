@@ -4,7 +4,7 @@
 
 **Plan smarter. Stay consistent. Get things done—because it's Now or Never.**
 
-![Dashboard](<Screenshot 2026-06-30 210652-1-1.png>)
+![Dashboard](<SScreenshots\Screenshot 2026-06-30 210652-1-1.png>)
 
 </div>
 
