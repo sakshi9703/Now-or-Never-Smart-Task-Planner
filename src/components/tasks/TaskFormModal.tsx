@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Task } from "../types";
+import { Task } from "../../types";
 import { X, ClipboardList, Clock, Flame, Calendar, Loader, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { safeDate } from "../lib/dateUtils";
+import { safeDate } from "../../utils/dateUtils";
 
 interface TaskFormModalProps {
   isOpen: boolean;

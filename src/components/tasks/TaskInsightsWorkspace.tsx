@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Task, Subtask, getDerivedStatus } from "../types";
+import { Task, Subtask, getDerivedStatus } from "../../types";
 import { 
   Clock, Calendar, AlertTriangle, CheckCircle, 
   Trash2, ListTodo, Activity
 } from "lucide-react";
-import { safeDate } from "../lib/dateUtils";
+import { safeDate } from "../../utils/dateUtils";
 
 function formatDurationHoursMins(effortHours: number): string {
   const totalMinutes = Math.round(effortHours * 60);

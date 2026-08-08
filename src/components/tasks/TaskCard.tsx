@@ -1,8 +1,8 @@
 import React from "react";
-import { Task, formatDuration, getDerivedStatus } from "../types";
+import { Task, formatDuration, getDerivedStatus } from "../../types";
 import { Calendar, AlertTriangle, CheckCircle, Clock, Timer } from "lucide-react";
 import { motion } from "motion/react";
-import { safeDate } from "../lib/dateUtils";
+import { safeDate } from "../../utils/dateUtils";
 
 interface TaskCardProps {
   task: Task;

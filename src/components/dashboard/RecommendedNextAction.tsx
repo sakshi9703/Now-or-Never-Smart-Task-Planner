@@ -1,7 +1,7 @@
 import React from "react";
-import { Task, formatDuration, getDerivedStatus } from "../types";
-import { Sparkles, Play, Compass, Clock, Calendar, AlertTriangle, CheckCircle2 } from "lucide-react";
-import { safeDate } from "../lib/dateUtils";
+import { Task, formatDuration, getDerivedStatus } from "../../types";
+import { Sparkles, Play, Compass, Clock, Calendar, CheckCircle2 } from "lucide-react";
+import { safeDate } from "../../utils/dateUtils";
 
 interface RecommendedNextActionProps {
   tasks: Task[];

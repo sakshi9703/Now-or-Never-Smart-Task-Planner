@@ -1,6 +1,6 @@
-import { doc, getDoc, setDoc, deleteDoc, collection, getDocs, Timestamp, serverTimestamp } from "firebase/firestore";
-import { db } from "./services/firebase";
-import { Task, UserProfile } from "./types";
+import { doc, getDoc, setDoc, updateDoc, deleteDoc, collection, getDocs, Timestamp, serverTimestamp } from "firebase/firestore";
+import { db } from "./firebase";
+import { Task, UserProfile, DailyPlan, SheetsSyncConfig } from "../types";
 
 enum OperationType {
   CREATE = "create",

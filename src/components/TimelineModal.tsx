@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Task } from "../types";
-import { X, Calendar, Clock, AlertTriangle, CheckCircle, ArrowLeft } from "lucide-react";
-import { safeDate } from "../lib/dateUtils";
+import { X, Calendar, Clock, CheckCircle, ArrowLeft } from "lucide-react";
+import { safeDate } from "../utils/dateUtils";
 
 interface TimelineModalProps {
   isOpen: boolean;

@@ -34,7 +34,7 @@ export interface Task {
   id: string;
   title: string;
   description?: string;
-  deadline?: string; // ISO datetime string
+  deadline?: string;
   priority: "low" | "medium" | "high" | "urgent";
   effortHours: number;
   status: "pending" | "completed";
@@ -44,17 +44,12 @@ export interface Task {
   riskAnalysis?: RiskAnalysis;
   rescuePlan?: RescuePlan;
   coachAdvice?: CoachAdvice;
-  createdAt: any; // Firestore Timestamp or string
+  createdAt: any;
   updatedAt: any;
   breakdownGenerated?: boolean;
   breakdownIsFallback?: boolean;
   aiSummary?: string;
   aiPriority?: "low" | "moderate" | "high";
-  reminderSent?: boolean;
-  emailReminder?: boolean;
-  reminderEnabled?: boolean;
-  reminderOffset?: number;
-  reminderUnit?: string;
   category?: string;
   notes?: string;
   startTime?: string;
@@ -141,7 +136,17 @@ export function calculateTaskRisk(task: Task, nowInput?: Date): CalculatedRisk {
   }
 
   const now = nowInput || new Date();
-  const deadline = new Date(task.deadline);
+if (!task.deadline) {
+  return {
+    score: 0,
+    level: "Low",
+    reasons: ["No deadline has been set."],
+    recommendation: "Set a deadline to accurately calculate task risk.",
+    expectedCompletion: "Not scheduled",
+  };
+}
+
+const deadline = new Date(task.deadline);
   const diffMs = deadline.getTime() - now.getTime();
   const effortMs = (task.effortHours || 1) * 3600 * 1000;
 
@@ -662,5 +667,3 @@ export function calculateStreak(tasks: Task[]): number {
 
   return currentStreak;
 }
-
-

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Task, formatDuration, getDerivedStatus } from "../types";
+import { Task, formatDuration, getDerivedStatus } from "../../types";
 import { CheckCircle2, Clock, CalendarClock, Plus, AlertCircle, Sparkles, ArrowRight } from "lucide-react";
-import { safeDate } from "../lib/dateUtils";
+import { safeDate } from "../../utils/dateUtils";
 
 interface TodayFocusProps {
   tasks: Task[];

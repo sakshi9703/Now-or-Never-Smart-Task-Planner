@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SheetsSyncConfig, Task } from "../types";
-import { createSyncSpreadsheet, syncTasksToSheet } from "../googleSync";
+import { createSyncSpreadsheet, syncTasksToSheet } from ".././services/googleSync";
 import { FileSpreadsheet, RefreshCw, CheckCircle, ExternalLink, ShieldCheck, ToggleLeft, ToggleRight, Sparkles, Loader } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 

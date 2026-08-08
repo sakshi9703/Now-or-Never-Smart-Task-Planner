@@ -1,5 +1,5 @@
-import { Task } from "./types";
-import { safeDate } from "./lib/dateUtils";
+import { Task } from "../types";
+import { safeDate } from "../utils/dateUtils";
 
 /**
  * Creates a new Google Spreadsheet for task sync.

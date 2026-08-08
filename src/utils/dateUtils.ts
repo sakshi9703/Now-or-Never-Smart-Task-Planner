@@ -1,4 +1,3 @@
-
 export function safeDate(value: any): Date | null {
   if (!value) return null;
   

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Task, calculateProductivityScore, getDerivedStatus } from "../types";
+import { Task, calculateProductivityScore, getDerivedStatus } from "../../types";
 import { 
   Clipboard, 
   AlertTriangle, 
@@ -19,7 +19,7 @@ import {
   Zap
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { safeDate } from "../lib/dateUtils";
+import { safeDate } from "../../utils/dateUtils";
 
 interface AnalyticsPanelProps {
   tasks: Task[];

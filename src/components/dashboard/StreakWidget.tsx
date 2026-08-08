@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Task, calculateStreak } from "../types";
+import { Task, calculateStreak } from "../../types";
 import { Flame, Info } from "lucide-react";
 import { motion } from "motion/react";
 
