@@ -640,13 +640,20 @@ export default function App() {
     }
   };
 
-  const handleLogin = async () => {
-    try {
-      await googleSignIn();
-    } catch (error) {
-      console.error("Login failed:", error);
+const handleLogin = async () => {
+  try {
+    const result = await googleSignIn();
+
+    if (result) {
+      setUser(result.user);
+      setAccessToken(result.accessToken);
+
+      console.log("Access token stored:", !!result.accessToken);
     }
-  };
+  } catch (error) {
+    console.error("Login failed:", error);
+  }
+};
 
   const handleLogout = async () => {
     await logout();
@@ -1733,40 +1740,50 @@ export default function App() {
     });
   };
 
-  const handleAutoSheetsSync = async (updatedTasks: Task[]) => {
-    let currentConfig: SheetsSyncConfig | null = null;
+const handleAutoSheetsSync = async (updatedTasks: Task[]) => {
+  const config = userProfile?.sheetsSyncConfig;
+
+  if (
+    !user ||
+    !config?.spreadsheetId ||
+    !config.isEnabled ||
+    !accessToken
+  ) {
+    return;
+  }
+
+  try {
+    await syncTasksToSheet(
+      config.spreadsheetId,
+      updatedTasks,
+      accessToken
+    );
+
+    const updatedConfig = {
+      ...config,
+      lastSyncedAt: new Date().toISOString(),
+    };
+
     setUserProfile((prevProfile) => {
-      if (prevProfile?.sheetsSyncConfig) {
-        currentConfig = prevProfile.sheetsSyncConfig;
-      }
-      return prevProfile;
+      if (!prevProfile) return null;
+
+      return {
+        ...prevProfile,
+        sheetsSyncConfig: updatedConfig,
+        updatedAt: new Date().toISOString(),
+      } as UserProfile;
     });
 
-    const config = currentConfig || userProfile?.sheetsSyncConfig;
-
-    if (user && config?.spreadsheetId && config.isEnabled && accessToken) {
-      try {
-        await syncTasksToSheet(config.spreadsheetId, updatedTasks, accessToken);
-        const updatedConfig = {
-          ...config,
-          lastSyncedAt: new Date().toISOString(),
-        };
-        setUserProfile((prevProfile) => {
-          if (!prevProfile) return null;
-          return {
-            ...prevProfile,
-            sheetsSyncConfig: updatedConfig,
-            updatedAt: new Date().toISOString(),
-          } as UserProfile;
-        });
-        await saveUserProfile(user.uid, user.email || "", {
-          sheetsSyncConfig: updatedConfig,
-        });
-      } catch (err) {
-        console.error("[SYNC] Automatic synchronization failed:", err);
-      }
-    }
-  };
+    await saveUserProfile(user.uid, user.email || "", {
+      sheetsSyncConfig: updatedConfig,
+    });
+  } catch (err) {
+    console.error(
+      "[SYNC] Automatic synchronization failed:",
+      err
+    );
+  }
+};
 
   const DEFAULT_CATEGORIES = ["Study", "Work", "Fitness", "Personal"];
   const customCategories = userProfile?.categories || [];

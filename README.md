@@ -10,7 +10,7 @@
 
 ## 📖 Overview
 
-**Now or Never – Smart Task Planner** is a modern productivity application that helps users organize tasks, generate daily timelines, track productivity, and maintain streaks. It offers secure Google Authentication, Local Mode, Google Sheets synchronization, and cloud-based task management through Firebase.
+**Now or Never – Smart Task Planner** is a modern productivity application that helps users organize tasks, generate daily timelines, track productivity, and maintain streaks. It offers secure Google Authentication, Local Mode and cloud-based task management through Firebase.
 
 ## ✨ Features
 
@@ -20,8 +20,6 @@
 * 📅 Daily timeline generation
 * 🎯 Priority-based task management
 * 🔥 Daily streak tracking
-* 📊 Productivity Score with actionable suggestions
-* 📈 Google Sheets synchronization
 * ☁️ Cloud Firestore synchronization
 * 🌙 Light & Dark themes
 * 📱 Fully responsive design
@@ -34,7 +32,6 @@
 * Tailwind CSS
 * Firebase Authentication
 * Cloud Firestore
-* Google Sheets API
 * Framer Motion
 * Lucide React
 

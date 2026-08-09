@@ -1,6 +1,6 @@
 {
   "name": "Now or Never",
-  "description": "An AI-powered productivity coach that helps you avoid missing deadlines by proactively planning, breaking down tasks, analyzing risks, and generating rescue plans, with optional Google Sheets syncing.",
+  "description": "An AI-powered productivity coach that helps you avoid missing deadlines by proactively planning, breaking down tasks, analyzing risks, and generating rescue plans.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

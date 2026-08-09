@@ -17,12 +17,22 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
+console.log("FIREBASE CONFIG:", {
+  authDomain: firebaseConfig.authDomain,
+  projectId: firebaseConfig.projectId,
+  storageBucket: firebaseConfig.storageBucket,
+  appId: firebaseConfig.appId,
+});
+
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
+
+provider.addScope("https://www.googleapis.com/auth/spreadsheets");
+provider.addScope("https://www.googleapis.com/auth/drive.file");
 
 let isSigningIn = false;
 
@@ -38,24 +48,57 @@ export const initAuth = (
     }
   });
 };
-
-export const googleSignIn = async (): Promise<User | null> => {
+export const googleSignIn = async (): Promise<{
+  user: User;
+  accessToken: string;
+} | null> => {
   try {
     isSigningIn = true;
 
     const result = await signInWithPopup(auth, provider);
 
+    const credential =
+      GoogleAuthProvider.credentialFromResult(result);
+
+    const accessToken = credential?.accessToken;
+
+    if (!accessToken) {
+      throw new Error("Google access token was not returned.");
+    }
+
     console.log("Google user:", result.user.email);
+    console.log("Google access token available:", !!accessToken);
 
-    console.log(result.user.uid);
-    console.log(result.user.email);
-
-    return result.user;
+    return {
+      user: result.user,
+      accessToken,
+    };
   } catch (error) {
     console.error("Sign in error:", error);
     throw error;
   } finally {
     isSigningIn = false;
+  }
+};
+export const getGoogleAccessToken = async (): Promise<string | null> => {
+  const currentUser = auth.currentUser;
+
+  if (!currentUser) {
+    return null;
+  }
+
+  try {
+    const provider = new GoogleAuthProvider();
+
+    const result = await signInWithPopup(auth, provider);
+
+    const credential =
+      GoogleAuthProvider.credentialFromResult(result);
+
+    return credential?.accessToken || null;
+  } catch (error) {
+    console.error("Failed to obtain Google access token:", error);
+    return null;
   }
 };
 
